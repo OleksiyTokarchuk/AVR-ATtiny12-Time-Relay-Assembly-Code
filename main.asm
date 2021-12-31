@@ -160,9 +160,9 @@ delay1s:
 Level2: 
 	dec r29
   	brne Level2
-  	dec  r28
+  	dec r28
   	brne Level2
-  	dec  r27
+  	dec r27
   	brne Level2
   	rjmp PC+1
 	ret
