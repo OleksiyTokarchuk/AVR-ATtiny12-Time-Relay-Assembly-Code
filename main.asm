@@ -1,11 +1,11 @@
 ;Author: Oleksiy Tokarchuk 
 ;mail.oleksiy@gmail.com
 
-.def data        = r16 			      ;Software shift register
+.def data        = r16 			            ;Software shift register
 .def i           = r17				    ;Register that stores cycle iterator
 .def p           = r18				    ;Pointer to data in table for 7-segment indicators 
-.def dataout     = r19		        ;Register that outputs data from shift into IO space 
-.def tableaddr   = r20	          ;Register that stores first byte point in table 
+.def dataout     = r19		                    ;Register that outputs data from shift into IO space 
+.def tableaddr   = r20	          	            ;Register that stores first byte point in table 
 .def temp        = r21
 .def time        = r22
 .def setpoint    = r23
