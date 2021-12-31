@@ -22,13 +22,13 @@
 
 .eseg
 	.db 0x01 ;EEPROM location for last used setpoint to store it
-           ;will be implemented in future
+                 ;will be implemented in future
 .cseg
 
 .org 0x00 rjmp RESET
 
 ; the best place to access table by single relative address LOW register 
-table:    .db 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, \
+table:    		    .db 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, \
 			        0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, \
 			        0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, \
 			        0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, \
@@ -136,33 +136,33 @@ print:					;subroutine that prints data on 7-segmet indicators
 	lpm
 	mov data, R0
 	rcall send
-  sub tableaddr, p
+        sub tableaddr, p
 	ret
 
 delay:
-  ldi r27, 2
-  ldi r28, 4
-  ldi r29, 187
+  	ldi r27, 2
+  	ldi r28, 4
+  	ldi r29, 187
 Level1: 
-  dec r29
-  brne Level1
-  dec r28
-  brne Level1
-  dec r27
-  brne Level1
-  nop
-  ret
+  	dec r29
+  	brne Level1
+  	dec r28
+  	brne Level1
+	dec r27
+	brne Level1
+	nop
+	ret
 
 delay1s:
-  ldi r27, 6
-  ldi r28, 19
-  ldi r29, 174
+  	ldi r27, 6
+  	ldi r28, 19
+  	ldi r29, 174
 Level2: 
 	dec r29
-  brne Level2
-  dec  r28
-  brne Level2
-  dec  r27
-  brne Level2
-  rjmp PC+1
+  	brne Level2
+  	dec  r28
+  	brne Level2
+  	dec  r27
+  	brne Level2
+  	rjmp PC+1
 	ret
