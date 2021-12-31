@@ -14,7 +14,7 @@
 .equ clock = 0					      ;clock pin
 .equ cs    = 2					      ;chip selsct pin
 .equ mosi  = 1					      ;sdout pin
-.equ mask  = 0b00000010 			;mask where 1 corresponds mosi pin position in PORTx register
+.equ mask  = 0b00000010 			      ;mask where 1 corresponds mosi pin position in PORTx register
 
 .equ plus  = 3
 .equ minus = 4
@@ -43,9 +43,9 @@ RESET:
 	ldi tableaddr, LOW(table * 2) 
 	sbi DDRB, mosi			                ;data
 	sbi DDRB, clock			                ;clock
-	sbi DDRB, cs			                  ;latch
+	sbi DDRB, cs			                ;latch
 	ldi temp, (1 << plus)|(1 << minus)
-	out PORTB, temp                     ;pull-up for buttons
+	out PORTB, temp                                 ;pull-up for buttons
 	clr temp
 	ldi time, 0
 loop:
