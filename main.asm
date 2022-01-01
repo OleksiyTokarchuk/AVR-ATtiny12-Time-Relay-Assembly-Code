@@ -46,6 +46,10 @@ RESET:
 	sbi DDRB, cs			                ;latch
 	ldi temp, (1 << plus)|(1 << minus)
 	out PORTB, temp                                 ;pull-up for buttons
+	rcall EEPROMRead
+	in setpoint, EEDR
+	mov p, setpoint
+	rcall print
 	clr temp
 	ldi time, 0
 loop:
@@ -62,6 +66,11 @@ loop:
 start:
 	cpi setpoint, 0
 	breq error              ;setpoint can't be zero
+	rcall EEPROMRead
+	in temp, EEDR
+	cp temp, setpoint
+	brne notequal
+NewSetpointSaved:
 	mov time, setpoint
 	sbi DDRB, relay
 softtimer:
@@ -77,6 +86,10 @@ softtimer:
 	rjmp loop
 error:
 	rjmp loop
+notequal:
+	out EEDR, setpoint
+	rcall EEPROMWrite
+	rjmp NewSetpointSaved
 
 increment:
 	rcall delay
@@ -162,4 +175,23 @@ Level2:
   	dec r27
   	brne Level2
   	rjmp PC+1
+	ret
+	
+EEPROMRead:
+    ldi temp, 0x00
+	out EEAR, temp
+	sbi EECR, EERE
+WaitRead:
+	sbic EECR, EERE
+	rjmp WaitRead
+	ret
+
+EEPROMWrite:
+	ldi temp, 0x00
+	out EEAR, temp
+	sbi EECR, EEMWE
+	sbi EECR, EEWE
+WaitWrite:
+	sbic EECR, EEWE
+	rjmp WaitWrite
 	ret
