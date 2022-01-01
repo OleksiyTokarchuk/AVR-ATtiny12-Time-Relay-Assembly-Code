@@ -21,8 +21,7 @@
 .equ relay = 5
 
 .eseg
-	.db 0x01 ;EEPROM location for last used setpoint to store it
-                 ;will be implemented in future
+	.db 0x01 
 .cseg
 
 .org 0x00 rjmp RESET
