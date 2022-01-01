@@ -140,17 +140,14 @@ print:					;subroutine that prints data on 7-segmet indicators
 	ret
 
 delay:
-  	ldi r27, 2
-  	ldi r28, 4
-  	ldi r29, 187
+  	ldi  r27, 195
+    	ldi  r28, 205
 Level1: 
-  	dec r29
-  	brne Level1
-  	dec r28
-  	brne Level1
-	dec r27
-	brne Level1
-	nop
+	dec  r28
+    	brne Level1
+    	dec  r27
+    	brne Level1
+    	rjmp PC+1
 	ret
 
 delay1s:
