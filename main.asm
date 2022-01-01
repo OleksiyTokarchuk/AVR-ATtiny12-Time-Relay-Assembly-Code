@@ -80,6 +80,7 @@ softtimer:
 	cpi time, 0
 	brne softtimer
 	cbi DDRB, relay
+	rcall delay1s
 	mov p, setpoint
 	rcall print
 	rjmp loop
