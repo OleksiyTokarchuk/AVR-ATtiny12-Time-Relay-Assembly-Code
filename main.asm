@@ -177,7 +177,7 @@ Level2:
 	ret
 	
 EEPROMRead:
-    ldi temp, 0x00
+    	ldi temp, 0x00
 	out EEAR, temp
 	sbi EECR, EERE
 WaitRead:
