@@ -10,3 +10,5 @@ Assembly code based AVR ATtiny12 time relay with 7-segment time indicators
 <img src="https://github.com/OleksiyTokarchuk/AVR-ATtiny12-Time-Relay-Assembly-Code/blob/main/Images/Single%20assembled%20board.png" alt="AVR assembler time relay single board" width="964" height="679">
 <hr>
 <img src="https://github.com/OleksiyTokarchuk/AVR-ATtiny12-Time-Relay-Assembly-Code/blob/main/Images/fabrication%20panel.png" alt="AVR assembler time relay fabrication panel" width="1069" height="790">
+<hr>
+<img src="https://github.com/OleksiyTokarchuk/AVR-ATtiny12-Time-Relay-Assembly-Code/blob/main/Images/fabrication%20panel-bottom.png" alt="AVR assembler time relay fabrication panel" width="1012" height="728">
